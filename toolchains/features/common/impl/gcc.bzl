@@ -28,6 +28,12 @@ _LD_ALL_ACTIONS = [
     ACTION_NAMES.cpp_link_executable,
 ]
 
+_CXX_ALL_LINK_ACTIONS = [
+    ACTION_NAMES.cpp_link_executable,
+    ACTION_NAMES.cpp_link_dynamic_library,
+    ACTION_NAMES.cpp_link_nodeps_dynamic_library,
+]
+
 def GccIncludeFeature(include_paths):
     _INCLUDE_FEATURE = feature(
         name = "includes",
@@ -287,6 +293,16 @@ _MISC_FEATURE = feature(
                     flags = [
                         "-std=c++2a",
                     ],
+                ),
+            ],
+        ),
+        flag_set(
+            actions = _CXX_ALL_LINK_ACTIONS +
+                      [ACTION_NAMES.cpp_link_static_library],
+            flag_groups = [
+                flag_group(
+                    flags = ["@%{linker_param_file}"],
+                    expand_if_available = "linker_param_file",
                 ),
             ],
         ),
