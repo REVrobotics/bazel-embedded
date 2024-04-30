@@ -117,7 +117,7 @@ def _clang_toolchain_config_info_impl(ctx):
     ]
     os = "nix"
     postfix = ""
-    if ctx.host_configuration.host_path_separator == ";":
+    if ctx.attr.is_windows:
         os = "windows"
         postfix = ".bat"
     tool_paths = [tool_path(name = t.name, path = t.path.format(os = os) + postfix) for t in tool_paths]
@@ -230,6 +230,10 @@ def clang_toolchain(name):
         supports_param_files = 0,
         toolchain_config = ":" + toolchain_config,
         toolchain_identifier = "clang",
+        is_windows = select({
+            "@bazel_tools//src/conditions:host_windows": True,
+            "//conditions:default": False,
+        }),
     )
 
     native.toolchain(

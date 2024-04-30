@@ -19,4 +19,9 @@ echo "{}"
 print_all_features = rule(
     _print_all_features_impl,
     executable = True,
+    attrs = {
+        "is_windows": attr.bool(
+            mandatory = True,
+        ),
+    }
 )
