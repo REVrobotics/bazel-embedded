@@ -41,6 +41,7 @@ _PLATFORM_SPECIFIC_CONFIGS_9 = {
     "windows": _WINDOWS,
     "windows server 2019": _WINDOWS,
     "windows 10": _WINDOWS,
+    "windows 11": _WINDOWS,
     "mac os x": {
         "full_version": "9.2.1",
         "remote_compiler": {
