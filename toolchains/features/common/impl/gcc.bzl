@@ -31,6 +31,7 @@ _LD_ALL_ACTIONS = [
 _CXX_ALL_LINK_ACTIONS = [
     ACTION_NAMES.cpp_link_executable,
     ACTION_NAMES.cpp_link_dynamic_library,
+    ACTION_NAMES.cpp_link_static_library,
     ACTION_NAMES.cpp_link_nodeps_dynamic_library,
 ]
 
