@@ -207,16 +207,6 @@ _DEBUG_FEATURE = feature(
                 ),
             ],
         ),
-        flag_set(
-            actions = _CXX_ALL_LINK_ACTIONS +
-                      [ACTION_NAMES.cpp_link_static_library],
-            flag_groups = [
-                flag_group(
-                    flags = ["@%{linker_param_file}"],
-                    expand_if_available = "linker_param_file",
-                ),
-            ],
-        ),
     ],
     provides = ["compilation_mode"],
 )
