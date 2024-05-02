@@ -29,11 +29,10 @@ bazel_embedded_deps()
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 
-git_repository(
+http_archive(
     name = "rules_cc",
-    commit = "a636005ba28c0344da5110bd8532184c74b6ffdf",
-    remote = "https://github.com/bazelbuild/rules_cc.git",
-    shallow_since = "1583316607 -0800",
+    urls = ["https://github.com/bazelbuild/rules_cc/releases/download/0.0.10-rc1/rules_cc-0.0.10-rc1.tar.gz"],
+    sha256 = "d75a040c32954da0d308d3f2ea2ba735490f49b3a7aa3e4b40259ca4b814f825",
 )
 
 http_archive(
